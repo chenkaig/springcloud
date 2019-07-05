@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.jk.mapper.UserMapper" >
+    <select id="selectCount"  resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM a_user
+    </select>
+
+    <select id="selectUser"  resultType="com.jk.model.User">
+        SELECT * FROM a_user  LIMIT #{start},#{pageSize}
+    </select>
+
+    <insert id="addUser"  parameterType="com.jk.model.User">
+        INSERT INTO a_user values (#{userId},#{userName},#{age},#{sex},#{birthday})
+    </insert>
+
+    <select id="selectUserById"  parameterType="java.lang.Integer"  resultType="com.jk.model.User">
+        SELECT * FROM a_user  WHERE userId = #{id}
+    </select>
+
+    <update id="updateUser"  parameterType="com.jk.model.User">
+        UPDATE a_user SET userName=#{userName},age=#{age},sex=#{sex},birthday=#{birthday}  WHERE userId = #{userId}
+    </update>
+
+    <delete id="deleteUser"  parameterType="java.lang.Integer">
+        DELETE  FROM a_user WHERE   userId = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,31 @@
+
+
+spring:
+  application:
+    name: provider-user
+
+
+
+
+  cloud:
+
+    config:
+
+      label: master
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: springcloud-config
+
+
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+
+
+
+

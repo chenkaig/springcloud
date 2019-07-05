@@ -1,0 +1,16 @@
+server:
+  port: 8079
+
+spring:
+  application:
+    name: springcloud-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+zuul:
+  routes:
+    consumer-a:
+      path: /consumber-a/**
+      serviceId: consumer-user
